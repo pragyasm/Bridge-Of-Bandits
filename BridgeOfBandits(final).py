@@ -232,60 +232,6 @@ def player_setup_gui():
                         if current==player_count:
                             return players
 
-''' to manually input numbers
-def player_setup_gui():
-    count_box=TextBox((460,260,180,50))
-    name_box=TextBox((360,360,380,50))
-    btn_next=Button((460,440,180,60),"next",yellow)
-
-    stage="count"
-    player_count=0
-    players=[]
-    current=0
-
-    while True:
-        screen.fill(bg)
-        pygame.draw.rect(screen,card,(280,160,540,420),border_radius=12)
-
-        if stage=="count":
-            screen.blit(txt("number of players (3-12)",big),(330,200))
-            count_box.draw(screen)
-
-        else:
-            screen.blit(txt(f"enter name of player {current+1}",big),(340,300))
-            name_box.draw(screen)
-            btn_next.draw(screen)
-
-        pygame.display.flip()
-
-        for ev in pygame.event.get():
-            if ev.type==pygame.QUIT:
-                pygame.quit();sys.exit()
-
-            if stage=="count":
-                count_box.handle_event(ev)
-
-                if ev.type==pygame.KEYDOWN and ev.key==pygame.K_RETURN:
-                    if count_box.text.isdigit():
-                        n=int(count_box.text)
-                        if min_players<=n<=max_players:
-                            player_count=n
-                            stage="names"
-
-            else:
-                result=name_box.handle_event(ev)
-
-                if(result=="enter" or
-                   (ev.type==pygame.MOUSEBUTTONDOWN and btn_next.clicked(ev.pos))):
-                    if name_box.text.strip():
-                        players.append(Player(name_box.text.strip()))
-                        name_box.text=""
-                        current+=1
-
-                        if current==player_count:
-                            return players
-'''
-
 def play_again_screen(winner_text):
     #udf to ask if user wants to play game again or quit
     btn_again = Button((350, 400, 180, 60), "play again", green)
